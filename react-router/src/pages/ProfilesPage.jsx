@@ -1,6 +1,13 @@
-export default  function ProfilesPage(){
-    const profiles=[1,2,3,4,5];
+import { NavLink, Outlet } from 'react-router-dom'
+export default function ProfilesPage() {
+    const profiles = [1, 2, 3, 4, 5];
     return (<>
-    <h1>Profiles page</h1>
+        {profiles.map((profile) => (
+            <NavLink key={profile} to={`/profiles/${profile}`} >
+           
+                Profile : {profile}
+            </NavLink>
+        ))}
+        <Outlet />
     </>);
 }
